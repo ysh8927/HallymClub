@@ -30,6 +30,9 @@ export default function Header() {
           <Link href="/my-clubs" className="text-xs text-[var(--txt2)] hover:text-[var(--txt)] px-3 py-1.5 rounded-lg hover:bg-[var(--bg2)] transition-colors">
             내 동아리
           </Link>
+          <Link href="/federation" className="text-xs text-[var(--txt2)] hover:text-[var(--txt)] px-3 py-1.5 rounded-lg hover:bg-[var(--bg2)] transition-colors">
+            총동아리연합회
+          </Link>
         </nav>
 
         <div className="flex-1" />
@@ -70,6 +73,9 @@ export default function Header() {
           </Link>
           <Link href="/my-clubs" className="text-sm text-[var(--txt2)] py-2 px-3 rounded-lg hover:bg-[var(--bg2)]" onClick={() => setMenuOpen(false)}>
             내 동아리
+          </Link>
+          <Link href="/federation" className="text-sm text-[var(--txt2)] py-2 px-3 rounded-lg hover:bg-[var(--bg2)]" onClick={() => setMenuOpen(false)}>
+            총동아리연합회
           </Link>
           <div className="pt-2 border-t border-[var(--bdr)]">
             <Button variant="primary" size="sm" className="w-full justify-center">
