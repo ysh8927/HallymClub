@@ -1,11 +1,12 @@
 // ─── 동아리 분과 ─────────────────────────────────────────────
 export type ClubCategory =
-  | 'academic'    // 학술
-  | 'culture'     // 문화/예술
-  | 'sports'      // 체육
-  | 'volunteer'   // 봉사
-  | 'religion'    // 종교
-  | 'etc';        // 기타
+  | 'academic'     // 학술분과
+  | 'hobby'        // 취미예술분과
+  | 'performance'  // 공연분과
+  | 'sports'       // 체육분과
+  | 'volunteer'    // 봉사분과
+  | 'religion'     // 종교분과
+  | 'etc';         // 기타
 
 // ─── 동아리 ──────────────────────────────────────────────────
 export interface Club {
@@ -20,13 +21,14 @@ export interface Club {
   memberCount: number;
   maxMembers: number;
   isRecruiting: boolean;
-  meetingDay: string;      // e.g. "매주 화요일"
+  meetingDay: string;
   meetingPlace: string;
   establishedYear: number;
   tags: string[];
   president: string;
   likes: number;
   postCount: number;
+  snsUrl?: string;
 }
 
 // ─── 게시글 카테고리 ─────────────────────────────────────────
@@ -71,7 +73,7 @@ export interface User {
   grade: string;
   department: string;
   email: string;
-  joinedClubs: string[];   // club ids
+  joinedClubs: string[];
   role: 'student' | 'admin';
 }
 
@@ -90,12 +92,23 @@ export interface Notification {
 
 // ─── UI 헬퍼 ─────────────────────────────────────────────────
 export const CATEGORY_LABEL: Record<ClubCategory, string> = {
-  academic:  '학술',
-  culture:   '문화/예술',
-  sports:    '체육',
-  volunteer: '봉사',
-  religion:  '종교',
-  etc:       '기타',
+  academic:    '학술분과',
+  hobby:       '취미예술분과',
+  performance: '공연분과',
+  sports:      '체육분과',
+  volunteer:   '봉사분과',
+  religion:    '종교분과',
+  etc:         '기타',
+};
+
+export const CATEGORY_SHORT: Record<ClubCategory, string> = {
+  academic:    '학술',
+  hobby:       '취미예술',
+  performance: '공연',
+  sports:      '체육',
+  volunteer:   '봉사',
+  religion:    '종교',
+  etc:         '기타',
 };
 
 export const POST_CATEGORY_LABEL: Record<PostCategory, string> = {

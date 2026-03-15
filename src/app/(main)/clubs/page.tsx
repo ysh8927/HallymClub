@@ -7,7 +7,7 @@ import ClubCard from '@/components/clubs/ClubCard';
 import { CATEGORY_LABEL, type ClubCategory } from '@/types';
 import { categoryColor, cn } from '@/lib/utils';
 
-const CATEGORIES: ClubCategory[] = ['academic', 'culture', 'sports', 'volunteer', 'religion', 'etc'];
+const CATEGORIES: ClubCategory[] = ['academic', 'hobby', 'performance', 'sports', 'volunteer', 'religion', 'etc'];
 const SORT_OPTIONS = [
   { value: 'popular', label: '인기순' },
   { value: 'members', label: '인원순' },

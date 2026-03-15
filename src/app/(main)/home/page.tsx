@@ -8,24 +8,24 @@ import { categoryColor } from '@/lib/utils';
 
 export const metadata = { title: '홈' };
 
-const FEATURED_IDS = ['coding-club', 'photo-club', 'music-band', 'book-club'];
+const FEATURED_IDS = ['chaos', 'chumbaram', 'hanbitsajinhoe', 'sip-si-il-bap'];
 const featured = CLUBS.filter((c) => FEATURED_IDS.includes(c.id));
 const recruiting = CLUBS.filter((c) => c.isRecruiting).slice(0, 3);
 
 const STATS = [
-  { icon: Users,     value: '10+',  label: '동아리' },
-  { icon: BookOpen,  value: '200+', label: '게시글' },
-  { icon: Star,      value: '300+', label: '회원' },
-  { icon: TrendingUp,value: '매학기', label: '정기공연·행사' },
+  { icon: Users,      value: `${CLUBS.length}개`, label: '중앙 동아리' },
+  { icon: BookOpen,   value: '6개',  label: '분과' },
+  { icon: Star,       value: '700+', label: '동아리 회원' },
+  { icon: TrendingUp, value: '매학기', label: '정기 공연·행사' },
 ];
 
 const CATEGORIES: { key: ClubCategory; emoji: string }[] = [
-  { key: 'academic',  emoji: '🎓' },
-  { key: 'culture',   emoji: '🎨' },
-  { key: 'sports',    emoji: '⚽' },
-  { key: 'volunteer', emoji: '🤝' },
-  { key: 'religion',  emoji: '✝️' },
-  { key: 'etc',       emoji: '🌟' },
+  { key: 'academic',    emoji: '🎓' },
+  { key: 'hobby',       emoji: '🎨' },
+  { key: 'performance', emoji: '🎭' },
+  { key: 'sports',      emoji: '⚽' },
+  { key: 'volunteer',   emoji: '🤝' },
+  { key: 'religion',    emoji: '✝️' },
 ];
 
 export default function HomePage() {
@@ -33,13 +33,11 @@ export default function HomePage() {
     <div>
       {/* ── Hero ─────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-[var(--bg)] border-b border-[var(--bdr)]">
-        {/* Decorative blobs */}
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-indigo-400/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -bottom-16 -left-16 w-72 h-72 bg-purple-400/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative max-w-6xl mx-auto px-4 py-20 md:py-28">
           <div className="max-w-2xl">
-            {/* Label */}
             <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-600 text-xs font-semibold px-3 py-1.5 rounded-full border border-indigo-100 mb-6">
               <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse" />
               2025학년도 1학기 모집 진행 중
@@ -52,11 +50,10 @@ export default function HomePage() {
               </span>
             </h1>
             <p className="text-base text-[var(--txt2)] leading-relaxed mb-8 max-w-lg">
-              학술, 문화, 체육, 봉사까지 — 나에게 맞는 동아리를 찾고,<br className="hidden md:block" />
-              새로운 친구들과 특별한 대학 생활을 만들어보세요.
+              학술, 취미예술, 공연, 체육, 봉사, 종교까지 —<br className="hidden md:block" />
+              {CLUBS.length}개의 중앙동아리에서 나에게 딱 맞는 곳을 찾아보세요.
             </p>
 
-            {/* Search bar */}
             <div className="flex gap-2 max-w-md mb-6">
               <div className="flex-1 flex items-center gap-2 bg-[var(--bg2)] border border-[var(--bdr)] rounded-xl px-4 py-3 focus-within:border-indigo-400 transition-colors">
                 <Search size={15} className="text-[var(--txt3)] flex-shrink-0" />
@@ -74,13 +71,12 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* Quick category links */}
             <div className="flex flex-wrap gap-2">
               {CATEGORIES.map(({ key, emoji }) => (
                 <Link
                   key={key}
                   href={`/clubs?category=${key}`}
-                  className={`inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full border transition-colors hover:opacity-80 ${categoryColor(key)} border-current/20`}
+                  className={`inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full border border-current/20 transition-opacity hover:opacity-80 ${categoryColor(key)}`}
                 >
                   <span>{emoji}</span>
                   {CATEGORY_LABEL[key]}
@@ -126,7 +122,6 @@ export default function HomePage() {
               전체 보기 <ArrowRight size={12} />
             </Link>
           </div>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {recruiting.map((club, i) => (
               <ClubCard key={club.id} club={club} index={i} />
@@ -140,15 +135,14 @@ export default function HomePage() {
             <div>
               <div className="flex items-center gap-2 mb-1">
                 <TrendingUp size={12} className="text-rose-500" />
-                <span className="text-xs font-semibold text-rose-500">인기 동아리</span>
+                <span className="text-xs font-semibold text-rose-500">많이 찾는 동아리</span>
               </div>
-              <h2 className="text-lg font-serif font-bold text-[var(--txt)]">많은 학생들이 찾는 동아리</h2>
+              <h2 className="text-lg font-serif font-bold text-[var(--txt)]">주목받는 동아리</h2>
             </div>
             <Link href="/clubs" className="text-xs text-indigo-500 hover:text-indigo-700 flex items-center gap-1 font-medium">
               전체 보기 <ArrowRight size={12} />
             </Link>
           </div>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             {featured.map((club, i) => (
               <ClubCard key={club.id} club={club} index={i} />
@@ -162,17 +156,16 @@ export default function HomePage() {
             <h2 className="text-lg font-serif font-bold text-[var(--txt)] mb-1">분과별로 탐색하기</h2>
             <p className="text-xs text-[var(--txt2)]">관심 있는 분야의 동아리를 찾아보세요</p>
           </div>
-
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
             {CATEGORIES.map(({ key, emoji }) => (
               <Link
                 key={key}
                 href={`/clubs?category=${key}`}
-                className="flex flex-col items-center gap-2 p-4 bg-[var(--bg)] rounded-2xl border border-[var(--bdr)] hover:border-indigo-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group"
+                className="flex flex-col items-center gap-2 p-4 bg-[var(--bg)] rounded-2xl border border-[var(--bdr)] hover:border-indigo-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
               >
                 <span className="text-2xl">{emoji}</span>
                 <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${categoryColor(key)}`}>
-                  {CATEGORY_LABEL[key]}
+                  {CATEGORY_LABEL[key].replace('분과', '')}
                 </span>
               </Link>
             ))}
@@ -185,7 +178,7 @@ export default function HomePage() {
           <div className="relative max-w-lg">
             <div className="flex items-center gap-2 mb-3">
               <Calendar size={14} className="opacity-80" />
-              <span className="text-xs font-medium opacity-80">2025. 03. 15</span>
+              <span className="text-xs font-medium opacity-80">2025. 03. 20</span>
             </div>
             <h3 className="text-xl font-serif font-bold mb-2">2025년 1학기 동아리 박람회</h3>
             <p className="text-sm opacity-80 mb-5 leading-relaxed">
