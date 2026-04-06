@@ -491,7 +491,7 @@ export const CLUBS: Club[] = [
   // ══════════════════════════════════════════════
   //  공연분과 (10개)
   //  CODA / 두레박 / 봉현회 / 수레바퀴 / 엑스레이 /
-  //  유니콘 / 춤바람 / 한림극회 / 힙합PD / 일심무애
+  //  유니콘 / 춤바람 / 한림극회 / 힙합PD
   // ══════════════════════════════════════════════
   {
     id: 'coda',
@@ -682,28 +682,6 @@ export const CLUBS: Club[] = [
     likes: 79,
     postCount: 95,
   },
-  {
-    id: 'ilshimmooae',
-    name: '일심무애',
-    category: 'performance',
-    description:
-      '여성 댄스 중심의 공연 동아리입니다. 걸그룹 커버댄스, 창작 안무, 뮤지컬 퍼포먼스 등을 선보입니다. 학교 축제와 각종 행사에 정기적으로 출연합니다.',
-    shortDesc: '여성 댄서들이 모여 무대를 빛내는 댄스 동아리',
-    emoji: '🌸',
-    color: '#F472B6',
-    color2: '#EC4899',
-    memberCount: 16,
-    maxMembers: 22,
-    isRecruiting: true,
-    meetingDay: '매주 화·목요일',
-    meetingPlace: '체육관 연습실',
-    establishedYear: 2015,
-    tags: ['여성댄스', '커버댄스', '공연', '안무', '걸그룹'],
-    president: '이유림',
-    likes: 88,
-    postCount: 97,
-  },
-
   // ══════════════════════════════════════════════
   //  체육분과 (17개)
   //  Tie-Break / FVI / Match Point / SKY / who's next /
